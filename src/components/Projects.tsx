@@ -1,76 +1,126 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Star, Download, Eye, Code, Smartphone } from 'lucide-react';
 
 const Projects: React.FC = () => {
+  const [activeFilter, setActiveFilter] = useState('All');
+
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Mobile App",
-      description: "A comprehensive e-commerce solution with payment integration, user authentication, and real-time inventory management.",
-      image: "https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=E-Commerce+App",
-      technologies: ["Flutter", "Firebase", "Stripe"],
-      category: "E-Commerce",
-      downloads: "500K+",
+      title: "FR (First Responders)",
+      description: "First Responder is a React Native-based emergency app that allows users to instantly request ambulance services, with real-time location tracking, notifications, and live ambulance updates. Guides ambulance drivers to patient locations via Google Maps integration.",
+      image: "https://via.placeholder.com/400x300/EF4444/FFFFFF?text=First+Responders",
+      technologies: ["React Native", "Google Maps", "Firebase"],
+      category: "Emergency Services",
+      downloads: "50K+",
       rating: 4.8,
-      link: "#"
+      link: "#",
+      color: "#ef4444"
     },
     {
       id: 2,
-      title: "Fitness Tracking App",
-      description: "Personal fitness companion with workout tracking, nutrition planning, and progress analytics.",
-      image: "https://via.placeholder.com/400x300/8B5CF6/FFFFFF?text=Fitness+App",
-      technologies: ["React Native", "Node.js", "MongoDB"],
-      category: "Health & Fitness",
-      downloads: "300K+",
+      title: "Aquila i (Cyber Awareness)",
+      description: "Aquila i is a Native-based cyber security awareness app featuring interactive quizzes, a KBC-style game, certificate downloads in PDF format, and integrated webviews for enhanced learning, educating users about online threats and best practices.",
+      image: "https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Aquila+i",
+      technologies: ["Android Native", "Java", "PDF Generation"],
+      category: "Education",
+      downloads: "25K+",
       rating: 4.6,
-      link: "#"
+      link: "#",
+      color: "#3b82f6"
     },
     {
       id: 3,
-      title: "Food Delivery Platform",
-      description: "On-demand food delivery app with real-time tracking, restaurant management, and payment processing.",
-      image: "https://via.placeholder.com/400x300/10B981/FFFFFF?text=Food+Delivery",
-      technologies: ["Flutter", "Firebase", "Google Maps"],
-      category: "Food & Delivery",
-      downloads: "750K+",
-      rating: 4.9,
-      link: "#"
+      title: "Job Milegi (Job Requirements)",
+      description: "Job search application providing verified vacancies in Bhiwadi, Manesar, Gurugram, Bawal, Neemrana, and other categories.",
+      image: "https://via.placeholder.com/400x300/10B981/FFFFFF?text=Job+Milegi",
+      technologies: ["React Native", "Firebase", "Job APIs"],
+      category: "Job Search",
+      downloads: "100K+",
+      rating: 4.7,
+      link: "#",
+      color: "#10b981"
     },
     {
       id: 4,
-      title: "Social Media App",
-      description: "Modern social networking platform with photo sharing, messaging, and community features.",
-      image: "https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=Social+App",
-      technologies: ["React Native", "GraphQL", "AWS"],
-      category: "Social Media",
-      downloads: "1M+",
-      rating: 4.7,
-      link: "#"
+      title: "Umatic (E-commerce)",
+      description: "Developed intuitive e-commerce app with seamless user experience and secure transactions, focusing on scalability and performance.",
+      image: "https://via.placeholder.com/400x300/8B5CF6/FFFFFF?text=Umatic",
+      technologies: ["Flutter", "Firebase", "Stripe"],
+      category: "E-Commerce",
+      downloads: "200K+",
+      rating: 4.8,
+      link: "#",
+      color: "#8b5cf6"
     },
     {
       id: 5,
-      title: "Educational Learning App",
-      description: "Interactive learning platform with video courses, quizzes, and progress tracking for students.",
-      image: "https://via.placeholder.com/400x300/EF4444/FFFFFF?text=Education+App",
-      technologies: ["Flutter", "Firebase", "YouTube API"],
+      title: "Tutorgator",
+      description: "Developed from scratch using Android (Java). Integrated Google Maps API, Chat Socket, Google Sign-In, OTP verification via REST APIs, video trimmer, and custom calendars.",
+      image: "https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=Tutorgator",
+      technologies: ["Android Native", "Java", "Google Maps", "REST APIs"],
       category: "Education",
-      downloads: "200K+",
+      downloads: "75K+",
       rating: 4.5,
-      link: "#"
+      link: null,
+      color: "#f59e0b"
     },
     {
       id: 6,
-      title: "Travel Companion App",
-      description: "Travel planning and booking app with itinerary management, local recommendations, and booking integration.",
-      image: "https://via.placeholder.com/400x300/06B6D4/FFFFFF?text=Travel+App",
-      technologies: ["React Native", "Node.js", "Booking API"],
-      category: "Travel",
+      title: "Eldercare",
+      description: "Eldercare consists of group of dedicated veterans (selfless soldiers from Army, Navy & Air Force who have recently retired), doctors and social work specialists working to bridge the distance.",
+      image: "https://via.placeholder.com/400x300/06B6D4/FFFFFF?text=Eldercare",
+      technologies: ["React Native", "Firebase", "Healthcare APIs"],
+      category: "Healthcare",
+      downloads: "30K+",
+      rating: 4.9,
+      link: "#",
+      color: "#06b6d4"
+    },
+    {
+      id: 7,
+      title: "Spofit365",
+      description: "Spofit365 is a React Native sports app offering venue booking, slot payments via Stripe, tournament enrollment, team creation, player availability marking, rewards, real-time tournament status, notifications, and in-app ads.",
+      image: "https://via.placeholder.com/400x300/EC4899/FFFFFF?text=Spofit365",
+      technologies: ["React Native", "Stripe", "Firebase", "Real-time"],
+      category: "Sports",
       downloads: "150K+",
-      rating: 4.4,
-      link: "#"
+      rating: 4.7,
+      link: "#",
+      color: "#ec4899"
+    },
+    {
+      id: 8,
+      title: "Spofit365 Partner",
+      description: "Spofit365 also empowers partners to create and publish tournaments, manage venue bookings, boost tournament visibility, maintain organization profiles, and share live match and tournament details with advanced search and filter options.",
+      image: "https://via.placeholder.com/400x300/8B5CF6/FFFFFF?text=Spofit365+Partner",
+      technologies: ["React Native", "Firebase", "Admin Panel"],
+      category: "Sports",
+      downloads: "25K+",
+      rating: 4.6,
+      link: "#",
+      color: "#8b5cf6"
+    },
+    {
+      id: 9,
+      title: "Rajasthan Tourism (RTDC)",
+      description: "Explore the royal heritage of Rajasthan with ease. Discover forts, palaces, festivals, and local experiences. Your perfect travel companion for the Land of Kings.",
+      image: "https://via.placeholder.com/400x300/F97316/FFFFFF?text=Rajasthan+Tourism",
+      technologies: ["React Native", "Tourism APIs", "Google Maps"],
+      category: "Travel",
+      downloads: "100K+",
+      rating: 4.8,
+      link: "#",
+      color: "#f97316"
     }
   ];
+
+  const categories = ['All', 'Emergency Services', 'Education', 'Job Search', 'E-Commerce', 'Healthcare', 'Sports', 'Travel'];
+
+  const filteredProjects = activeFilter === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -95,124 +145,405 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <motion.div 
-        className="container mx-auto px-6"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Showcasing my best mobile app development work with modern technologies and user-centric design
-          </p>
-        </motion.div>
+    <section 
+      id="projects" 
+      style={{
+        padding: '100px 20px',
+        background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Background Elements */}
+      <div style={{
+        position: 'absolute',
+        top: '10%',
+        left: '10%',
+        width: '250px',
+        height: '250px',
+        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
+        borderRadius: '50%',
+        filter: 'blur(30px)'
+      }}></div>
+      
+      <div style={{
+        position: 'absolute',
+        bottom: '10%',
+        right: '10%',
+        width: '350px',
+        height: '350px',
+        background: 'radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, transparent 70%)',
+        borderRadius: '50%',
+        filter: 'blur(40px)'
+      }}></div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <motion.div 
-              key={project.id}
-              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover-lift"
-              variants={itemVariants}
-              whileHover={{ scale: 1.02, y: -5 }}
-              transition={{ duration: 0.3 }}
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        position: 'relative',
+        zIndex: 10
+      }}>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {/* Header Section */}
+          <motion.div 
+            style={{ textAlign: 'center', marginBottom: '80px' }} 
+            variants={itemVariants}
+          >
+            <motion.h2 
+              style={{
+                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                fontWeight: 'bold',
+                marginBottom: '20px',
+                color: '#ffffff'
+              }}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.8 }}
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-64 object-cover hover-scale transition-transform duration-300"
-                />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700">
-                  {project.category}
-                </div>
-                <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
-                  ⭐ {project.rating}
-                </div>
-              </div>
+              My{' '}
+              <span style={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>
+                Projects
+              </span>
+            </motion.h2>
+            <motion.p 
+              style={{
+                fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+                color: '#d1d5db',
+                maxWidth: '600px',
+                margin: '0 auto',
+                lineHeight: '1.6'
+              }}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Explore my portfolio of innovative mobile applications and digital solutions
+            </motion.p>
+          </motion.div>
 
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 hover-underline cursor-pointer">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
+          {/* Filter Buttons */}
+          <motion.div 
+            style={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              gap: '15px', 
+              justifyContent: 'center', 
+              marginBottom: '60px' 
+            }}
+            variants={itemVariants}
+          >
+            {categories.map((category, index) => (
+              <motion.button
+                key={category}
+                onClick={() => setActiveFilter(category)}
+                style={{
+                  padding: '12px 24px',
+                  background: activeFilter === category 
+                    ? 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)' 
+                    : 'rgba(255, 255, 255, 0.1)',
+                  color: '#ffffff',
+                  border: activeFilter === category 
+                    ? 'none' 
+                    : '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '25px',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  backdropFilter: 'blur(10px)'
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2,
+                  background: activeFilter === category 
+                    ? 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)' 
+                    : 'rgba(255, 255, 255, 0.15)'
+                }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                {category}
+              </motion.button>
+            ))}
+          </motion.div>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span 
-                      key={tech}
-                      className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium"
+          {/* Projects Grid */}
+          <motion.div 
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+              gap: '30px'
+            }}
+            variants={itemVariants}
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease',
+                  backdropFilter: 'blur(10px)'
+                }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -5,
+                  boxShadow: `0 20px 40px ${project.color}20`
+                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                {/* Project Image */}
+                <div style={{ position: 'relative', overflow: 'hidden' }}>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    style={{
+                      width: '100%',
+                      height: '200px',
+                      objectFit: 'cover',
+                      transition: 'transform 0.3s ease'
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: '15px',
+                    right: '15px',
+                    background: `${project.color}20`,
+                    border: `1px solid ${project.color}40`,
+                    borderRadius: '20px',
+                    padding: '6px 12px',
+                    color: project.color,
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    backdropFilter: 'blur(10px)'
+                  }}>
+                    {project.category}
+                  </div>
+                </div>
+
+                {/* Project Content */}
+                <div style={{ padding: '25px' }}>
+                  <motion.h3 
+                    style={{
+                      fontSize: '1.4rem',
+                      fontWeight: 'bold',
+                      color: '#ffffff',
+                      marginBottom: '15px',
+                      lineHeight: '1.3'
+                    }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    {project.title}
+                  </motion.h3>
+                  
+                  <p style={{
+                    fontSize: '1rem',
+                    color: '#d1d5db',
+                    marginBottom: '20px',
+                    lineHeight: '1.6'
+                  }}>
+                    {project.description}
+                  </p>
+
+                  {/* Technologies */}
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '8px',
+                    marginBottom: '20px'
+                  }}>
+                    {project.technologies.map((tech, techIndex) => (
+                      <motion.span
+                        key={tech}
+                        style={{
+                          background: `${project.color}20`,
+                          color: project.color,
+                          padding: '6px 12px',
+                          borderRadius: '15px',
+                          fontSize: '12px',
+                          fontWeight: '500',
+                          border: `1px solid ${project.color}40`
+                        }}
+                        whileHover={{ 
+                          scale: 1.05,
+                          boxShadow: `0 5px 15px ${project.color}30`
+                        }}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: techIndex * 0.05 }}
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+
+                  {/* Stats */}
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '20px',
+                    padding: '15px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    borderRadius: '12px'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Download style={{ width: '16px', height: '16px', color: '#60a5fa' }} />
+                      <span style={{ color: '#d1d5db', fontSize: '14px' }}>{project.downloads}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <Star style={{ width: '16px', height: '16px', color: '#fbbf24' }} />
+                      <span style={{ color: '#d1d5db', fontSize: '14px' }}>{project.rating}</span>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  {project.link ? (
+                    <motion.button
+                      onClick={() => window.open(project.link, '_blank')}
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        padding: '12px 24px',
+                        background: `linear-gradient(135deg, ${project.color} 0%, ${project.color}80 100%)`,
+                        color: '#ffffff',
+                        border: 'none',
+                        borderRadius: '12px',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease'
+                      }}
+                      whileHover={{ 
+                        scale: 1.02,
+                        boxShadow: `0 10px 25px ${project.color}40`
+                      }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      <ExternalLink style={{ width: '16px', height: '16px' }} />
+                      Play Store
+                    </motion.button>
+                  ) : (
+                    <motion.div
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        padding: '12px 24px',
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        color: '#9ca3af',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        borderRadius: '12px',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        cursor: 'not-allowed'
+                      }}
+                    >
+                      <Eye style={{ width: '16px', height: '16px' }} />
+                      Coming Soon
+                    </motion.div>
+                  )}
                 </div>
+              </motion.div>
+            ))}
+          </motion.div>
 
-                {/* Stats */}
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm text-gray-500">
-                    📥 {project.downloads} downloads
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    ⭐ {project.rating}/5.0
-                  </span>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  <button className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg font-medium hover:shadow-lg transition-all duration-300">
-                    View Details
-                  </button>
-                  <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-300">
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Project Statistics */}
-        <div className="mt-16 fade-in delay-500">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-8 text-center">Project Impact</h3>
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">6</div>
-                <div className="text-gray-600">Apps Published</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-purple-600 mb-2">2.5M+</div>
-                <div className="text-gray-600">Total Downloads</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-green-600 mb-2">4.7</div>
-                <div className="text-gray-600">Average Rating</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-orange-600 mb-2">50K+</div>
-                <div className="text-gray-600">Active Users</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-12 text-center fade-in delay-600">
-          <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover-lift transition-all duration-300 shadow-lg">
-            View All Projects
-          </button>
-        </div>
-      </motion.div>
+          {/* Call to Action */}
+          <motion.div 
+            style={{ 
+              textAlign: 'center', 
+              marginTop: '80px',
+              padding: '50px 30px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '25px',
+              backdropFilter: 'blur(10px)'
+            }}
+            variants={itemVariants}
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h3 
+              style={{
+                fontSize: 'clamp(1.8rem, 4vw, 2.5rem)',
+                fontWeight: 'bold',
+                marginBottom: '20px',
+                color: '#ffffff'
+              }}
+              whileHover={{ scale: 1.02 }}
+            >
+              Ready to{' '}
+              <span style={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>
+                Collaborate?
+              </span>
+            </motion.h3>
+            <p style={{
+              fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+              color: '#d1d5db',
+              marginBottom: '30px',
+              maxWidth: '600px',
+              margin: '0 auto 30px auto',
+              lineHeight: '1.6'
+            }}>
+              Let's work together to bring your ideas to life with cutting-edge mobile solutions
+            </p>
+            <motion.button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '10px',
+                padding: '16px 32px',
+                background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: '50px',
+                fontSize: '18px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                boxShadow: '0 10px 25px rgba(59, 130, 246, 0.3)',
+                transition: 'all 0.3s ease'
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -3,
+                boxShadow: '0 15px 35px rgba(59, 130, 246, 0.4)'
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Code style={{ width: '20px', height: '20px' }} />
+              Start a Project
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
