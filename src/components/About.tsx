@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Smartphone, Code, CheckCircle, Download, Star, Award } from 'lucide-react';
+import { Smartphone, Code, CheckCircle, Download } from 'lucide-react';
 
 const About: React.FC = () => {
   const containerVariants = {
@@ -147,7 +147,7 @@ const About: React.FC = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=320&h=320&fit=crop&crop=face&auto=format&q=80" 
+                    src="https://i.ibb.co/Fq3GR4P/Screenshot-2025-08-21-at-11-37-29-PM.png" 
                     alt="Suresh Vaishnav"
                     style={{
                       width: '100%',
@@ -292,7 +292,7 @@ const About: React.FC = () => {
                   alignItems: 'center',
                   opacity: 0.7
                 }}>
-                  {['BURBERRY', 'EPM', 'INDEPENDENT', 'DAVR BANK', "Molly's"].map((brand, index) => (
+                  {['BURBERRY', 'EPM', 'INDEPENDENT', 'DAVR BANK', "Molly's"].map((brand) => (
                     <motion.span
                       key={brand}
                       style={{

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Star, Download, Eye, Code, Smartphone } from 'lucide-react';
+import { ExternalLink, Star, Download, Eye, Code } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('All');
