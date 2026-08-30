@@ -1,6 +1,6 @@
 # Modern Portfolio Website
 
-A beautiful, responsive portfolio website built with React, TypeScript, and Tailwind CSS. Perfect for showcasing mobile app development projects and professional skills.
+A beautiful, responsive portfolio website built with React, TypeScript, and Tailwind CSS showcasing mobile app development projects and professional skills.
 
 ## ✨ Features
 
@@ -13,20 +13,20 @@ A beautiful, responsive portfolio website built with React, TypeScript, and Tail
 
 ### 📱 Mobile Developer Focus
 - **Project Showcase**: Display mobile app screenshots with descriptions
-- **App Templates**: Download section for ready-to-use app templates
 - **Skills Section**: Technical skills with progress bars and technology icons
 - **Professional Experience**: Detailed work history and education
+- **Contact Integration**: Functional contact form
 
 ### 🚀 Key Sections
 1. **Hero Section**: Animated introduction with resume download
 2. **About Me**: Professional details and experience
-3. **Skills**: Technical expertise with visual progress bars
+3. **Skills**: Technical expertise with visual indicators
 4. **Projects**: Mobile app portfolio with screenshots
-5. **App Templates**: Downloadable app templates for clients
-6. **Contact**: Contact form and social links
+5. **Contact**: Contact form and social links
 
 ### 🛠 Technical Features
 - **React 18** with TypeScript
+- **Vite** for ultra-fast builds
 - **Tailwind CSS** for styling
 - **Intersection Observer** for scroll animations
 - **Custom Hooks** for reusable functionality
@@ -42,28 +42,28 @@ A beautiful, responsive portfolio website built with React, TypeScript, and Tail
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Portfolio
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/SureshVaishnnav/Portfolio.git
+cd Portfolio
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+# Install dependencies
+npm install
+# or
+yarn install
 
-3. **Start the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+# Start the development server
+npm run dev
 
-4. **Open your browser**
-   Navigate to `http://localhost:5173`
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Open in Browser
+Navigate to `http://localhost:5173`
 
 ## 📁 Project Structure
 
@@ -74,7 +74,6 @@ src/
 │   ├── About.tsx             # About me section
 │   ├── Skills.tsx            # Skills and technologies
 │   ├── Projects.tsx          # Project showcase
-│   ├── AppTemplates.tsx      # App template downloads
 │   ├── Contact.tsx           # Contact form and info
 │   └── Navbar.tsx            # Navigation bar
 ├── hooks/
@@ -94,6 +93,7 @@ Update the following files with your information:
 
 ### Projects
 Edit `src/components/Projects.tsx` to add your mobile app projects:
+
 ```typescript
 const projects = [
   {
@@ -102,26 +102,10 @@ const projects = [
     description: "App description...",
     image: "path/to/screenshot.png",
     technologies: ["React Native", "Firebase"],
-    category: "Category",
+    category: "Mobile App",
     downloads: "100K+",
     rating: 4.8,
     link: "#"
-  }
-];
-```
-
-### App Templates
-Update `src/components/AppTemplates.tsx` with your actual templates:
-```typescript
-const templates = [
-  {
-    id: 1,
-    name: "Your Template",
-    description: "Template description...",
-    price: "$99",
-    features: ["Feature 1", "Feature 2"],
-    downloads: 1000,
-    rating: 4.8
   }
 ];
 ```
@@ -133,8 +117,7 @@ const templates = [
 
 ## 📱 Mobile App Screenshots
 
-The portfolio includes placeholder images for mobile app screenshots. Replace these with your actual app screenshots:
-
+Replace placeholder images with your actual app screenshots:
 1. Update image URLs in the projects array
 2. Use high-quality screenshots (recommended: 300x600px)
 3. Ensure screenshots showcase your app's best features
@@ -169,14 +152,31 @@ yarn build
 ```
 
 ### Deploy Options
-- **Vercel**: Connect your GitHub repository
+- **Vercel**: Connect your GitHub repository for automatic deployments
 - **Netlify**: Drag and drop the `dist` folder
 - **GitHub Pages**: Use GitHub Actions for deployment
 - **Firebase Hosting**: Use Firebase CLI
 
+## 📊 Performance
+
+- ⚡ Lightning-fast build times with Vite
+- 📦 Optimized bundle size
+- 🎯 SEO-friendly structure
+- 🚀 Fast initial load times
+- 🔄 Efficient code splitting
+
+## 🔧 Technologies
+
+- **React 18+** - Modern UI library
+- **TypeScript** - Type-safe JavaScript
+- **Vite** - Ultra-fast build tool
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router** - Client-side routing
+- **Framer Motion** - Animation library
+
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License
 
 ## 🤝 Contributing
 
@@ -184,8 +184,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📞 Support
 
-If you have any questions or need help customizing the portfolio, please open an issue or contact me.
+If you have any questions or need help customizing the portfolio, please open an issue.
 
 ---
 
-**Built with ❤️ using React, TypeScript, and Tailwind CSS**
+**Built with ❤️ using React, TypeScript, Vite, and Tailwind CSS**
